@@ -25,6 +25,7 @@ namespace Scopes
             
             builder.Register<UpdateProvider>(Lifetime.Singleton).As<ITickable, UpdateProvider>();
             
+            //Start point of game
             builder.RegisterEntryPoint<GameStarter>();
         }
     }
