@@ -8,6 +8,7 @@ namespace Game
     public class GameStarter : IStartable
     {
         [Inject] private ParticleService particleService;
+        [Inject] private InputService inputService;
         
         void IStartable.Start()
         {
@@ -15,6 +16,7 @@ namespace Game
             new OnGameStarted().Trigger(this);
             
             particleService.Init();
+            inputService.Init();
         }
     }
 }

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5095230335325779190}
   - component: {fileID: 7405213765833228676}
   - component: {fileID: 1668874637519215155}
+  - component: {fileID: 6459093396315530887}
   m_Layer: 0
   m_Name: GameStartParticle
   m_TagString: Untagged
@@ -4847,3 +4848,18 @@ MonoBehaviour:
   - {fileID: 5095230335325779190}
   TimeToDisable: 3
   UseRandomSeed: 1
+--- !u!114 &6459093396315530887
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2395408502212639135}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c69d703d8b0eac40b91d7daf2bb285c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  countInitial: 1
+  minuteClear: 5
+  poolOnDisable: 1
