@@ -460,6 +460,7 @@ MonoBehaviour:
     TypeName: 
   autoRun: 1
   autoInjectGameObjects: []
+  particleContainer: {fileID: 11400000, guid: 1509bbf8ed592734782255e512217140, type: 2}
 --- !u!4 &1561792287
 Transform:
   m_ObjectHideFlags: 0
