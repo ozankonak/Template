@@ -1,4 +1,4 @@
-using UnityEngine;
+using Events;
 using VContainer.Unity;
 
 namespace Game
@@ -7,7 +7,8 @@ namespace Game
     {
         void IStartable.Start()
         {
-            Debug.Log("Game Started");
+            // This event was added in case any external service wants to listen.
+            new OnGameStarted().Trigger(this);
         }
     }
 }
