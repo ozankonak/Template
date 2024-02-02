@@ -2,9 +2,9 @@ using Providers;
 using UnityEngine;
 using VContainer;
 
-namespace Services
+namespace Systems
 {
-    public class InputService
+    public class InputSystem
     {
         [Inject] private Camera mainCamera;
         [Inject] private readonly UpdateProvider updateProvider;

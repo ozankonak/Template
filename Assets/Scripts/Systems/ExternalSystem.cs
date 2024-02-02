@@ -2,9 +2,9 @@ using Events;
 using Observer;
 using UnityEngine;
 
-namespace Services
+namespace Systems
 {
-    public class ExternalService : MonoBehaviour
+    public class ExternalSystem : MonoBehaviour
     {
         public void OnEnable()
         {

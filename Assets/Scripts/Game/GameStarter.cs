@@ -1,5 +1,5 @@
 using Events;
-using Services;
+using Systems;
 using VContainer;
 using VContainer.Unity;
 
@@ -7,16 +7,16 @@ namespace Game
 {
     public class GameStarter : IStartable
     {
-        [Inject] private ParticleService particleService;
-        [Inject] private InputService inputService;
+        [Inject] private VFXSystem vfxSystem;
+        [Inject] private InputSystem inputSystem;
         
         void IStartable.Start()
         {
             // This event was added in case any external service wants to listen.
             new OnGameStarted().Trigger(this);
             
-            particleService.Init();
-            inputService.Init();
+            vfxSystem.Init();
+            inputSystem.Init();
         }
     }
 }

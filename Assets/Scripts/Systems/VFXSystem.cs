@@ -4,9 +4,9 @@ using ParticleStrategy;
 using UnityEngine;
 using VContainer;
 
-namespace Services
+namespace Systems
 {
-    public class ParticleService : ParticleBehaviours
+    public class VFXSystem : ParticleBehaviours
     {
         [Inject] private ParticleContainer particleContainer;
         

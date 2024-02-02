@@ -1,7 +1,7 @@
 using Containers;
 using Game;
 using Providers;
-using Services;
+using Systems;
 using UnityEngine;
 using VContainer;
 using VContainer.Unity;
@@ -20,8 +20,8 @@ namespace Scopes
             builder.RegisterComponent(mainCamera);
             builder.RegisterComponent(particleContainer);
             
-            builder.Register<ParticleService>(Lifetime.Singleton);
-            builder.Register<InputService>(Lifetime.Singleton);
+            builder.Register<VFXSystem>(Lifetime.Singleton);
+            builder.Register<InputSystem>(Lifetime.Singleton);
             
             builder.Register<UpdateProvider>(Lifetime.Singleton).As<ITickable, UpdateProvider>();
             
