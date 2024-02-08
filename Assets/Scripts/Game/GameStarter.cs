@@ -1,3 +1,4 @@
+using Cameras;
 using Events;
 using Systems;
 using VContainer;
@@ -9,6 +10,7 @@ namespace Game
     {
         [Inject] private VFXSystem vfxSystem;
         [Inject] private InputSystem inputSystem;
+        [Inject] private CameraFollow cameraFollow;
         
         void IStartable.Start()
         {
@@ -17,6 +19,7 @@ namespace Game
             
             vfxSystem.Init();
             inputSystem.Init();
+            cameraFollow.Init();
         }
     }
 }

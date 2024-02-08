@@ -1,3 +1,4 @@
+using Player;
 using Providers;
 using UnityEngine;
 using VContainer;
@@ -6,8 +7,14 @@ namespace Systems
 {
     public class InputSystem
     {
-        [Inject] private Camera mainCamera;
         [Inject] private readonly UpdateProvider updateProvider;
+        [Inject] private PlayerMovement playerMovement;
+        
+        private const string Horizontal = "Horizontal";
+        private const string Vertical = "Vertical";
+
+        private float xInput;
+        private float zInput;
 
         public void Init()
         {
@@ -16,16 +23,10 @@ namespace Systems
 
         private void ManualUpdate()
         {
-            if (Input.GetMouseButtonDown(0))
-            {
-                Debug.Log("Mouse pos :" + GetMouseWorldPos());
-            }
-        }
-        
-        private Vector3 GetMouseWorldPos()
-        {
-            Vector2 mousePoint = Input.mousePosition;
-            return mainCamera == null ? Vector3.zero : mainCamera.ScreenToWorldPoint(mousePoint);
+            xInput = Input.GetAxis(Horizontal);
+            zInput = Input.GetAxis(Vertical);
+            
+            playerMovement.Move(xInput,zInput);
         }
     }
 }

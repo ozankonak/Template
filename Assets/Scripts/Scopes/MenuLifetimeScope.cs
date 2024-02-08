@@ -20,7 +20,11 @@ namespace Scopes
             builder.RegisterComponentInHierarchy<MenuSceneLoader>();
 
             builder.Register<ObjectWarmer>(Lifetime.Singleton);
-            builder.Register<UpdateProvider>(Lifetime.Singleton).As<ITickable, UpdateProvider>();
+            
+            builder.Register<UpdateProvider>(Lifetime.Singleton)
+                .As<ITickable>()
+                .As<IFixedTickable>()
+                .As<ILateTickable>();
             
             //Start point of menu
             builder.RegisterEntryPoint<MenuStarter>();
