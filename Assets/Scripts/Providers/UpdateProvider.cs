@@ -18,8 +18,8 @@ namespace Providers
             StartCounterUpdate?.Invoke();
             CameraFollowUpdate?.Invoke();
         }
-		
-        private void Reset()
+        
+        public void Reset()
         {
             CheckInputUpdate = null;
             StartCounterUpdate = null;
