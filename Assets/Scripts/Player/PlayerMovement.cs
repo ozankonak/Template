@@ -7,7 +7,12 @@ namespace Player
     {
         [Inject] private PlayerAnimation PlayerAnimation;
         
-        private float speed = 5f;
+        private float forwardSpeed = 5f;
+        private float backwardSpeed = 3f;
+
+        private float currentSpeed;
+        
+        
         private Vector3 movement;
         
         private readonly CharacterController playerCharacterController;
@@ -20,10 +25,12 @@ namespace Player
         {
             movement = new Vector3(xInput, 0f, zInput);
 
+            currentSpeed = zInput < 0 ? backwardSpeed : forwardSpeed;
+            
             if (movement.magnitude > 0)
             {
                 movement.Normalize();
-                movement *= speed * Time.deltaTime;
+                movement *= currentSpeed * Time.deltaTime;
 
                 playerCharacterController.Move(movement);
             }
