@@ -27,6 +27,7 @@ namespace Systems
             zInput = Input.GetAxis(Vertical);
             
             playerMovement.Move(xInput,zInput);
+            playerMovement.Jump();
         }
     }
 }

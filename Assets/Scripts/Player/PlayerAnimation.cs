@@ -5,12 +5,14 @@ namespace Player
     public class PlayerAnimation
     {
         private readonly Animator playerAnimation;
-        
-        private readonly string XInputKey = "xInput";
-        private readonly string ZInputKey = "zInput";
 
         private float velocityZ;
         private float velocityX;
+        
+        private readonly int XInputKey = Animator.StringToHash("xInput");
+        private readonly int ZInputKey = Animator.StringToHash("zInput");
+        private readonly int Jump = Animator.StringToHash("Jump");
+        private readonly int Grounded = Animator.StringToHash("Grounded");
 
         public PlayerAnimation(Animator playerAnimation)
         {
@@ -26,6 +28,16 @@ namespace Player
 
             playerAnimation.SetFloat(XInputKey, velocityX, 0.1f, Time.deltaTime);
             playerAnimation.SetFloat(ZInputKey, velocityZ, 0.1f, Time.deltaTime);
+        }
+
+        public void JumpAnimation()
+        {
+            playerAnimation.SetTrigger(Jump);
+        }
+
+        public void GroundAnimation(bool isGrounded)
+        {
+            playerAnimation.SetBool(Grounded,isGrounded);
         }
     }
 }
