@@ -4,6 +4,7 @@ using Containers;
 using Game;
 using Player;
 using Providers;
+using Sheeps;
 using Systems;
 using UnityEngine;
 using VContainer;
@@ -17,6 +18,7 @@ namespace Scopes
         [Header("Player Components")] [Space]
         [SerializeField] private CharacterController playerCharacterController;
         [SerializeField] private Animator playerAnimator;
+        [SerializeField] private GameObject SheepPrefab;
 
         private Camera mainCamera;
         private Transform playerTransform;
@@ -38,6 +40,9 @@ namespace Scopes
             builder.RegisterComponent(particleContainer);
             builder.RegisterComponent(playerTransform);
             builder.RegisterComponent(houseTriggerPoints);
+            
+            builder.Register<ISheepFactory, SheepFactory>(Lifetime.Transient)
+                .WithParameter("sheepPrefab", SheepPrefab);
             
             builder.RegisterInstance(playerCharacterController).AsSelf(); 
             builder.RegisterInstance(playerAnimator).AsSelf();

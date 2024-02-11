@@ -710,6 +710,8 @@ MonoBehaviour:
   particleContainer: {fileID: 11400000, guid: 1509bbf8ed592734782255e512217140, type: 2}
   playerCharacterController: {fileID: 5866666020067378289}
   playerAnimator: {fileID: 5866666020067378288}
+  SheepPrefab: {fileID: 5799759045567846839, guid: ed57f85e128444af2aecca62ff336fea,
+    type: 3}
 --- !u!4 &1561792287
 Transform:
   m_ObjectHideFlags: 0
