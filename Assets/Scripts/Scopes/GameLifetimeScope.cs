@@ -55,6 +55,7 @@ namespace Scopes
             builder.Register<PlayerAnimation>(Lifetime.Singleton).WithParameter(playerAnimator);
 
             builder.RegisterComponentInHierarchy<PlayerTrigger>();
+            builder.RegisterComponentInHierarchy<SheepDestroyer>();
             
             builder.Register<VFXSystem>(Lifetime.Singleton);
             builder.Register<InputSystem>(Lifetime.Singleton);

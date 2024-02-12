@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 4234413388925316548}
   - component: {fileID: 914258361524602423}
   - component: {fileID: 6934032380938670968}
+  - component: {fileID: 7396449882098268939}
+  - component: {fileID: -8865561231287997995}
   m_Layer: 0
   m_Name: Sheep
   m_TagString: Untagged
@@ -96,3 +98,39 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa058507eb089a845962508dd64f193b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!65 &7396449882098268939
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5799759045567846839}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.663015, y: 0.6248243, z: 1.0041825}
+  m_Center: {x: 0.0015249997, y: 0.123150386, z: 0.113201246}
+--- !u!114 &-8865561231287997995
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5799759045567846839}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c69d703d8b0eac40b91d7daf2bb285c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  countInitial: 64
+  minuteClear: 5
+  poolOnDisable: 1

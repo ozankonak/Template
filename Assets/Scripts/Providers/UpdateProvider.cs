@@ -9,6 +9,7 @@ namespace Providers
         public Action CheckInputUpdate;
         public Action CameraFollowUpdate;
         public Action StartCounterUpdate;
+        public Action SheepMovement;
         
         public void Tick()
         {
@@ -17,6 +18,7 @@ namespace Providers
             CheckInputUpdate?.Invoke();
             StartCounterUpdate?.Invoke();
             CameraFollowUpdate?.Invoke();
+            SheepMovement?.Invoke();
         }
         
         public void Reset()
@@ -24,6 +26,7 @@ namespace Providers
             CheckInputUpdate = null;
             StartCounterUpdate = null;
             CameraFollowUpdate = null;
+            SheepMovement = null;
         }
     }
 }

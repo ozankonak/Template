@@ -1,6 +1,6 @@
 using DG.Tweening;
+using ObjectPool;
 using Observer;
-using Unity.Mathematics;
 using UnityEngine;
 using VContainer;
 using Random = UnityEngine.Random;
@@ -24,26 +24,23 @@ namespace Sheeps
         
         public void AutoSpawn()
         {
-            DOVirtual.DelayedCall(Random.Range(0.5f, 3f),
-                () =>
-                {
-                    CreateSheep(new Vector3(Random.value * 100f, 0f, Random.value * 100f),
-                        quaternion.identity);
-                  
-                }).onComplete += () =>
-            {
-                DOVirtual.DelayedCall(Random.Range(0.5f, 3f), AutoSpawn);
-            };
+            SpawnTween().OnComplete(AutoSpawn);
         }
 
-        public Sheep CreateSheep(Vector3 position, Quaternion rotation)
+        private Tween SpawnTween()
         {
-            var sheepInstance = Object.Instantiate(sheepPrefab, position, rotation);
+            return DOVirtual.DelayedCall(Random.Range(0.25f, 1.5f), ()=> CreateSheep());
+        }
+
+        private void CreateSheep()
+        {
+            var sheepInstance = sheepPrefab.Spawn();
+            sheepInstance.transform.position = new Vector3(Random.Range(-4.5f, 4.5f), 0.2f, 488f);
+            sheepInstance.transform.rotation = Quaternion.Euler(0, 180, 0);
             var sheep = sheepInstance.GetComponent<Sheep>();
             resolver.Inject(sheep);
             SheepDictionary.Add(sheepCount,sheep);
             sheepCount++;
-            return sheep;
         }
     }
 }
