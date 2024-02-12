@@ -20,7 +20,7 @@ namespace Sheeps
             if (keyToRemove < 0) return;
             
             SheepDictionary.Remove(keyToRemove);
-            sheep.gameObject.SetActive(false);
+            sheep.DestroySheep();
         }
     }
 }

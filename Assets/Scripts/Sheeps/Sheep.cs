@@ -6,7 +6,6 @@ namespace Sheeps
 {
     public class Sheep : MonoBehaviour
     {
-        [Inject] private Transform playerTransform;
         [Inject] private UpdateProvider updateProvider;
 
         private void Start()
