@@ -712,6 +712,8 @@ MonoBehaviour:
   playerAnimator: {fileID: 5866666020067378288}
   SheepPrefab: {fileID: 5799759045567846839, guid: ed57f85e128444af2aecca62ff336fea,
     type: 3}
+  SheepDictionary:
+    array: []
 --- !u!4 &1561792287
 Transform:
   m_ObjectHideFlags: 0

@@ -1,4 +1,5 @@
 using DG.Tweening;
+using Observer;
 using Unity.Mathematics;
 using UnityEngine;
 using VContainer;
@@ -8,8 +9,12 @@ namespace Sheeps
 {
     public class SheepFactory : ISheepFactory
     {
+        [Inject] private SerializableDictionary<int, Sheep> SheepDictionary;
+        
         private readonly IObjectResolver resolver;
         private readonly GameObject sheepPrefab;
+
+        private int sheepCount = 0;
 
         public SheepFactory(IObjectResolver resolver, GameObject sheepPrefab)
         {
@@ -36,6 +41,8 @@ namespace Sheeps
             var sheepInstance = Object.Instantiate(sheepPrefab, position, rotation);
             var sheep = sheepInstance.GetComponent<Sheep>();
             resolver.Inject(sheep);
+            SheepDictionary.Add(sheepCount,sheep);
+            sheepCount++;
             return sheep;
         }
     }
