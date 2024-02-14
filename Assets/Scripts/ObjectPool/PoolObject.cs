@@ -1,5 +1,4 @@
-﻿using Gameguru;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace ObjectPool
 {

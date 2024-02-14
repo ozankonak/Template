@@ -1,9 +1,8 @@
 using System.Collections.Generic;
-using ObjectPool;
 using UnityEngine;
 using Utility;
 
-namespace Gameguru
+namespace ObjectPool
 {
 	internal class Poolv1 : Singleton<Poolv1>
 	{
@@ -75,6 +74,12 @@ namespace Gameguru
 				pair.Value.ExpirePool();
 			}
 		}
+
+		private void OnDestroy()
+		{
+			ClearPools();
+		}
+
 		#endregion
 	}
 }

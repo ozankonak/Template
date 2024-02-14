@@ -23,7 +23,7 @@ namespace Sheeps
         private int sheepCount;
 
         private readonly float minSpawnTime = 0.1f;
-        private readonly float maxSpawnTime = 0.4f;
+        private readonly float maxSpawnTime = 0.2f;
 
         private readonly float sheepSpeed = 0.2f;
         private readonly float sheepBorder = 4.5f;

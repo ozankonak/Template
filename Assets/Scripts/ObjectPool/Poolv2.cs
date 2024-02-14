@@ -1,9 +1,8 @@
 ﻿using System.Collections.Generic;
-using ObjectPool;
 using UnityEngine;
 using Utility;
 
-namespace Gameguru
+namespace ObjectPool
 {
 	internal class Poolv2 : Singleton<Poolv2>
 	{
