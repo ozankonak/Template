@@ -11,10 +11,12 @@ namespace Scopes
     public class MenuLifetimeScope : LifetimeScope
     {
         [SerializeField] private ParticleContainer particleContainer;
+        [SerializeField] private GameObjectContainer gameObjectContainer;
         
         protected override void Configure(IContainerBuilder builder)
         {
             builder.RegisterComponent(particleContainer);
+            builder.RegisterComponent(gameObjectContainer);
             
             builder.RegisterComponentInHierarchy<MenuUISystem>();
             builder.RegisterComponentInHierarchy<MenuSceneLoader>();

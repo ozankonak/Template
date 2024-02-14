@@ -131,6 +131,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c69d703d8b0eac40b91d7daf2bb285c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  countInitial: 64
+  countInitial: 250
   minuteClear: 5
   poolOnDisable: 1

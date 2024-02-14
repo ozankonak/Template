@@ -62,6 +62,7 @@ namespace Scopes
             builder.Register<CameraFollow>(Lifetime.Singleton);
             
             builder.Register<UpdateProvider>(Lifetime.Singleton).As<ITickable, UpdateProvider>();
+            builder.Register<LateUpdateProvider>(Lifetime.Singleton).As<ILateTickable, LateUpdateProvider>();
             
             //Start point of game
             builder.RegisterEntryPoint<GameStarter>();

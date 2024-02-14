@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using Containers;
 using ObjectPool;
 using ParticleStrategy;
+using UnityEngine;
 using VContainer;
 
 namespace MainMenu
@@ -9,6 +10,7 @@ namespace MainMenu
     public class ObjectWarmer 
     {
         [Inject] private readonly ParticleContainer vfxContainer;
+        [Inject] private readonly GameObjectContainer gameObjectContainer;
 
         private static bool hasInit;
 
@@ -18,6 +20,8 @@ namespace MainMenu
             hasInit = true;
             
             GetParticleObjects(vfxContainer.GetAllParticles());
+            GetAllGameObjects(gameObjectContainer.GetAllGameObjects());
+
             //Shader.WarmupAllShaders();
         }
         
@@ -29,5 +33,12 @@ namespace MainMenu
             }
         }
 
+        private void GetAllGameObjects(List<GameObject> pooledObjects)
+        {
+            foreach (GameObject poolItem in pooledObjects)
+            {
+                PoolObject.Warm(poolItem);
+            }
+        }
     }
 }

@@ -475,6 +475,8 @@ MonoBehaviour:
   autoRun: 1
   autoInjectGameObjects: []
   particleContainer: {fileID: 11400000, guid: 1509bbf8ed592734782255e512217140, type: 2}
+  gameObjectContainer: {fileID: 11400000, guid: bb7f428be88cf594eba48b8b65065526,
+    type: 2}
 --- !u!4 &1151370929
 Transform:
   m_ObjectHideFlags: 0

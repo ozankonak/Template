@@ -13,6 +13,7 @@ namespace Game
         [Inject] private InputSystem inputSystem;
         [Inject] private CameraFollow cameraFollow;
         [Inject] private ISheepFactory sheepFactory;
+        
         void IStartable.Start()
         {
             // This event was added in case any external service wants to listen.
@@ -21,7 +22,7 @@ namespace Game
             vfxSystem.Init();
             inputSystem.Init();
             cameraFollow.Init();
-            sheepFactory.AutoSpawn();
+            sheepFactory.Init();
         }
     }
 }
