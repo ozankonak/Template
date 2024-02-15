@@ -3,6 +3,7 @@ using DG.Tweening;
 using ObjectPool;
 using Observer;
 using Providers;
+using Unity.Burst;
 using UnityEngine;
 using VContainer;
 using UnityEngine.Jobs;
@@ -28,8 +29,10 @@ namespace Sheeps
         private readonly float sheepSpeed = 0.2f;
         private readonly float sheepBorder = 4.5f;
         
+        [BurstCompile]
         struct MoveJob : IJobParallelForTransform
         {
+            [BurstCompile]
             public void Execute(int index, TransformAccess transform)
             {
                 transform.position += 0.2f * (transform.rotation * new Vector3(0, 0, 1));
