@@ -82,9 +82,7 @@ namespace Sheeps
 
         private void CreateSheep()
         {
-            var sheepInstance = sheepPrefab.Spawn();
-            sheepInstance.transform.position = RandomSheepPos();
-            sheepInstance.transform.rotation = Quaternion.Euler(0, 180, 0);
+            var sheepInstance = sheepPrefab.Spawn(RandomSheepPos(),new Vector3(0,180,0));
             var sheep = sheepInstance.GetComponent<Sheep>();
             resolver.Inject(sheep);
             SheepDictionary.Add(sheepCount,sheep);

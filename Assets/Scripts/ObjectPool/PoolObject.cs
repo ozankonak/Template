@@ -24,9 +24,23 @@ namespace ObjectPool
 			return clone;
 		}
 		
+		public static GameObject Spawn(GameObject original,Vector3 pos,Vector3 rot,bool enable=true)
+		{
+			GameObject clone = Poolv1.Spawn(original);
+			clone.transform.position = pos;
+			clone.transform.rotation = Quaternion.Euler(rot);
+			clone.SetActive(enable);
+			return clone;
+		}
+		
 		public static T Spawn<T>(T original,Transform parent=null,bool enable = true) where T : Component
 		{
 			return Spawn(original.gameObject,parent,enable).GetComponent<T>();
+		}
+		
+		public static T Spawn<T>(T original,Vector3 pos, Vector3 rot,bool enable = true) where T : Component
+		{
+			return Spawn(original.gameObject,pos,rot,enable).GetComponent<T>();
 		}
 		
 		public static void Pool(GameObject clone)
@@ -55,6 +69,11 @@ namespace ObjectPool
 		public static GameObject Spawn(this GameObject original,Transform parent=null,bool enable = true)
 		{
 			return PoolObject.Spawn(original,parent,enable);
+		}
+		
+		public static GameObject Spawn(this GameObject original,Vector3 pos,Vector3 rot,bool enable = true)
+		{
+			return PoolObject.Spawn(original,pos,rot,enable);
 		}
 		
 		public static T Spawn<T>(this T original,Transform parent=null,bool enable = true) where T : Component

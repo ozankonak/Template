@@ -33,6 +33,8 @@ namespace Player
         public void Move(float xInput, float zInput)
         {
             movement = new Vector3(xInput, 0f, zInput);
+
+            if (playerCharacterController == null) return;
             
             var position = playerCharacterController.transform.position;
             movement.x = Mathf.Clamp(movement.x + position.x, -4.5f, 4.5f) - position.x;
@@ -53,6 +55,8 @@ namespace Player
 
         public void Jump()
         {
+            if (playerCharacterController == null) return;
+            
             groundedPlayer = playerCharacterController.isGrounded;
 
             if (groundedPlayer && playerVelocity.y < 0)
