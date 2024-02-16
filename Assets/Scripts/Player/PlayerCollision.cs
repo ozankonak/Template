@@ -1,7 +1,10 @@
-using System;
 using System.Collections.Generic;
+using System.Linq;
+using Containers;
+using Managers;
 using Observer;
 using Sheeps;
+using Systems;
 using UnityEngine;
 using VContainer;
 
@@ -11,15 +14,14 @@ namespace Player
     {
         [Inject] private List<BoxCollider> houseTriggerPoints;
         [Inject] private SerializableDictionary<int, Sheep> SheepDictionary;
+        [Inject] private VFXSystem vfxSystem;
+        [Inject] private AudioManager audioManager;
+        [Inject] private GameAudioContainer gameAudioContainer;
 
         private void OnTriggerEnter(Collider other)
         {
             CheckHouses(other);
-        }
-
-        private void OnControllerColliderHit(ControllerColliderHit hit)
-        {
-            CheckSheep(hit);
+            CheckSheep(other);
         }
         
         private void CheckHouses(Collider other)
@@ -35,16 +37,24 @@ namespace Player
             }
         }
         
-        private void CheckSheep(ControllerColliderHit hit)
+        private void CheckSheep(Collider other)
         {
-            Sheep sheep = hit.gameObject.GetComponent<Sheep>();
+            Sheep sheep = other.GetComponent<Sheep>();
 
             if (sheep == null) return;
 
-            if (SheepDictionary.ContainsValue(sheep))
-            {
-                Destroy(gameObject);
-            }
+            if (!SheepDictionary.ContainsValue(sheep)) return;
+            
+            var keyToRemove = SheepDictionary.FirstOrDefault(pair => pair.Value == sheep).Key;
+
+            if (keyToRemove < 0) return;
+            
+            SheepDictionary.Remove(keyToRemove);
+            sheep.gameObject.SetActive(false);
+            
+            vfxSystem.CreateSheepCollectParticle(sheep.transform.position + Vector3.up);
+            
+            audioManager.Play2DSound(gameAudioContainer.CollectShipClip,true);
         }
 
     }

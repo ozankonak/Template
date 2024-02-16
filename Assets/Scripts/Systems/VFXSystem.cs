@@ -10,14 +10,9 @@ namespace Systems
     {
         [Inject] private ParticleContainer particleContainer;
         
-        public void Init()
+        public void CreateSheepCollectParticle(Vector3 pos)
         {
-            CreateGameStartParticle(Vector3.zero);
-        }
-
-        private void CreateGameStartParticle(Vector3 pos)
-        {
-            ParticleStarter particleToPlay = particleContainer.GameStartParticle.Spawn();
+            ParticleStarter particleToPlay = particleContainer.SheepCollectParticle.Spawn();
             particleToPlay.PlayBehavior(RegularParticleBehavior,pos);
         }
     }

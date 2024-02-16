@@ -123,6 +123,74 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1001 &232313612
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6244674687508181967, guid: 77e22db447babb44fb96e80def7d574a,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6244674687508181967, guid: 77e22db447babb44fb96e80def7d574a,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6244674687508181967, guid: 77e22db447babb44fb96e80def7d574a,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6244674687508181967, guid: 77e22db447babb44fb96e80def7d574a,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6244674687508181967, guid: 77e22db447babb44fb96e80def7d574a,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6244674687508181967, guid: 77e22db447babb44fb96e80def7d574a,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6244674687508181967, guid: 77e22db447babb44fb96e80def7d574a,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6244674687508181967, guid: 77e22db447babb44fb96e80def7d574a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6244674687508181967, guid: 77e22db447babb44fb96e80def7d574a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6244674687508181967, guid: 77e22db447babb44fb96e80def7d574a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9143954431147843950, guid: 77e22db447babb44fb96e80def7d574a,
+        type: 3}
+      propertyPath: m_Name
+      value: AudioManager
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 77e22db447babb44fb96e80def7d574a, type: 3}
 --- !u!1 &330585543
 GameObject:
   m_ObjectHideFlags: 0
@@ -709,6 +777,7 @@ MonoBehaviour:
   playerAnimator: {fileID: 5866666020067378288}
   SheepPrefab: {fileID: 5799759045567846839, guid: ed57f85e128444af2aecca62ff336fea,
     type: 3}
+  gameAudioContainer: {fileID: 11400000, guid: fc41aa0b740482f4db6edc91733beb99, type: 2}
   SheepDictionary:
     array: []
 --- !u!4 &1561792287
@@ -3934,3 +4003,4 @@ SceneRoots:
   - {fileID: 1125944425}
   - {fileID: 543450651716574730}
   - {fileID: 1125878340}
+  - {fileID: 232313612}

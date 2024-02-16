@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using Cameras;
 using Containers;
 using Game;
+using Managers;
 using Observer;
 using Player;
 using Providers;
@@ -20,6 +21,7 @@ namespace Scopes
         [SerializeField] private CharacterController playerCharacterController;
         [SerializeField] private Animator playerAnimator;
         [SerializeField] private GameObject SheepPrefab;
+        [SerializeField] private GameAudioContainer gameAudioContainer;
 
         [SerializeField] private SerializableDictionary<int, Sheep> SheepDictionary = new SerializableDictionary<int, Sheep>();
 
@@ -44,6 +46,7 @@ namespace Scopes
             builder.RegisterComponent(playerTransform);
             builder.RegisterComponent(houseTriggerPoints);
             builder.RegisterComponent(SheepDictionary);
+            builder.RegisterComponent(gameAudioContainer);
             
             builder.Register<ISheepFactory, SheepFactory>(Lifetime.Transient)
                 .WithParameter("sheepPrefab", SheepPrefab);
@@ -56,6 +59,7 @@ namespace Scopes
 
             builder.RegisterComponentInHierarchy<PlayerCollision>();
             builder.RegisterComponentInHierarchy<SheepDestroyer>();
+            builder.RegisterComponentInHierarchy<AudioManager>();
             
             builder.Register<VFXSystem>(Lifetime.Singleton);
             builder.Register<InputSystem>(Lifetime.Singleton);

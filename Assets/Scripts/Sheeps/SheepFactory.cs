@@ -12,6 +12,7 @@ using Random = UnityEngine.Random;
 
 namespace Sheeps
 {
+    [BurstCompile]
     public class SheepFactory : ISheepFactory
     {
         [Inject] private SerializableDictionary<int, Sheep> SheepDictionary;
